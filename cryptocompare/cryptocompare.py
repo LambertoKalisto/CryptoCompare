@@ -115,20 +115,16 @@ def _set_api_key_parameter(api_key: str = None) -> str:
 
 def get_coin_list(format: bool = False, fields: Optional[List[str]] = None) -> Union[Dict, List, None]:
     """
-    Получить список монет (все доступные монеты).
+    Get a list of coins (all available coins).
 
-    :param format: форматировать как список Python (по умолчанию: False)
-    :returns: словарь или список доступных монет
+    :param format: format as Python list (default: False)
+    :returns: dictionary or list of available coins
     """
     response = _query_cryptocompare(_URL_COIN_LIST, False, fields=fields)
     if response:
         response = typing.cast(Dict, response["Data"])
         return list(response.keys()) if format else response
     return None
-
-
-# TODO: add option to filter json response according to a list of fields
-
 
 def get_price(
     coin: str, currency: str = CURRENCY, full: bool = False, fields: Optional[List[str]] = None
