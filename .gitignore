@@ -100,3 +100,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Add by Lamberto
+.idea/
+build/
+cryptocompare_fields.egg-info/
+dist/
