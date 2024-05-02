@@ -6,13 +6,13 @@ Python3 wrapper to query cryptocurrency prices (and more) using the [CryptoCompa
 
 ## Install
 ```sh
-pip3 install cryptocompare
+pip3 install cryptocompare-fields
 ```
 
 ## Usage
 
 ```python
-import cryptocompare
+import cryptocompare-fields
 ```
 
 ## API Key
@@ -26,7 +26,7 @@ cryptocompare.cryptocompare._set_api_key_parameter(KEY_HERE)
 ### Coin List
 
 ```python
-cryptocompare.get_coin_list(format=False)
+cryptocompare-fields.get_coin_list(format=False)
 # ...
 # },
 # 'BTC': {
@@ -53,11 +53,11 @@ containing only the abbreviations (like `BTC`).
 ### Price
 
 ```python
-cryptocompare.get_price('BTC')
+cryptocompare-fields.get_price('BTC')
 # or
-cryptocompare.get_price('BTC', currency='USD', full=True)
+cryptocompare-fields.get_price('BTC', currency='USD', full=True)
 # or
-cryptocompare.get_price(['BTC', 'ETH'], ['EUR', 'GBP'])
+cryptocompare-fields.get_price(['BTC', 'ETH'], ['EUR', 'GBP'])
 
 # {'BTC': {'EUR': 3709.04, 'GBP': 3354.78},
 #  'ETH': {'EUR': 258.1, 'GBP': 241.25}}
@@ -67,9 +67,9 @@ cryptocompare.get_price(['BTC', 'ETH'], ['EUR', 'GBP'])
 
 ```python
 # pass either datetime or time instance
-cryptocompare.get_historical_price('XMR', timestamp=datetime.datetime(2017,6,6), exchange='CCCAGG')
+cryptocompare-fields.get_historical_price('XMR', timestamp=datetime.datetime(2017,6,6), exchange='CCCAGG')
 # or
-cryptocompare.get_historical_price('XMR', 'EUR', datetime.datetime(2017,6,6))
+cryptocompare-fields.get_historical_price('XMR', 'EUR', datetime.datetime(2017,6,6))
 
 # {'XMR': {'EUR': 43.05}}
 ```
@@ -77,36 +77,36 @@ cryptocompare.get_historical_price('XMR', 'EUR', datetime.datetime(2017,6,6))
 #### Day
 
 ```python
-cryptocompare.get_historical_price_day('BTC', currency='EUR')
-cryptocompare.get_historical_price_day('BTC', currency='EUR', limit=30)
-cryptocompare.get_historical_price_day('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(2019,6,6))
+cryptocompare-fields.get_historical_price_day('BTC', currency='EUR')
+cryptocompare-fields.get_historical_price_day('BTC', currency='EUR', limit=30)
+cryptocompare-fields.get_historical_price_day('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(2019,6,6))
 # or
-cryptocompare.get_historical_price_day('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(1559815200))
+cryptocompare-fields.get_historical_price_day('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(1559815200))
 ```
 
 #### Hour
 
 ```python
-cryptocompare.get_historical_price_hour('BTC', currency='EUR')
-cryptocompare.get_historical_price_hour('BTC', currency='EUR', limit=24)
-cryptocompare.get_historical_price_hour('BTC', 'EUR', limit=24, exchange='CCCAGG')
-cryptocompare.get_historical_price_hour('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(2019,6,6,12))
+cryptocompare-fields.get_historical_price_hour('BTC', currency='EUR')
+cryptocompare-fields.get_historical_price_hour('BTC', currency='EUR', limit=24)
+cryptocompare-fields.get_historical_price_hour('BTC', 'EUR', limit=24, exchange='CCCAGG')
+cryptocompare-fields.get_historical_price_hour('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(2019,6,6,12))
 # or
-cryptocompare.get_historical_price_hour('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(1559815200))
+cryptocompare-fields.get_historical_price_hour('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime(1559815200))
 ```
 
 #### Minute
 
 ```python
-cryptocompare.get_historical_price_minute('BTC', currency='EUR')
-cryptocompare.get_historical_price_minute('BTC', currency='EUR', limit=1440)
-cryptocompare.get_historical_price_minute('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime.now())
+cryptocompare-fields.get_historical_price_minute('BTC', currency='EUR')
+cryptocompare-fields.get_historical_price_minute('BTC', currency='EUR', limit=1440)
+cryptocompare-fields.get_historical_price_minute('BTC', 'EUR', limit=24, exchange='CCCAGG', toTs=datetime.datetime.now())
 ```
 
 ### Average
 
 ```python
-cryptocompare.get_avg('BTC', currency='EUR', exchange='Kraken')
+cryptocompare-fields.get_avg('BTC', currency='EUR', exchange='Kraken')
 # {
 # 'MARKET': 'CUSTOMAGG',
 # 'FROMSYMBOL': 'BTC',
@@ -131,14 +131,14 @@ cryptocompare.get_avg('BTC', currency='EUR', exchange='Kraken')
 ### Exchanges
 
 ```python
-cryptocompare.get_exchanges()
+cryptocompare-fields.get_exchanges()
 ```
 
 ### Pairs
 
 ```python
-cryptocompare.get_pairs()
-pairs = cryptocompare.get_pairs(exchange='Kraken')
+cryptocompare-fields.get_pairs()
+pairs = cryptocompare-fields.get_pairs(exchange='Kraken')
 ```
 
 ## Developing
@@ -158,3 +158,4 @@ python3 -m pytest
 This is a hobby project, no guarantees.
 If you find bugs or want additional features,
 open an issue and/or create a pull request.
+Original code was taken from https://github.com/lagerfeuer/cryptocompare
